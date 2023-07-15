@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import mask from "@/img/mask.jpg";
+import mask from "@/../../public/mask.jpg";
 import { MdMessage } from "react-icons/md";
 import { CiMenuKebab } from "react-icons/ci";
 const Navbar: FC = () => {

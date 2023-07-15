@@ -1,7 +1,7 @@
-import People from "@/components/Chats/People/People";
-import Navbar from "@/components/Chats/People/Navbar/Navbar";
+import People from "@/components/Contacts/People";
+import Navbar from "@/components/Contacts/Navbar/Navbar";
 import Image from "next/image";
-import Chat from "@/components/Chats/Chat/Chat";
+import Chat from "@/components/Chat/Chat";
 
 export default function Home() {
   return (

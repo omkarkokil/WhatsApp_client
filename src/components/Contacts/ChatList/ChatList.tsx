@@ -1,8 +1,15 @@
-import Image from "next/image";
-import React, { FC } from "react";
-import mask from "@/img/mask.jpg";
+import Image, { StaticImageData } from "next/image";
+import React from "react";
 
-const ChatList = ({ name, Avater, time }) => {
+const ChatList = ({
+  name,
+  Avater,
+  time,
+}: {
+  name: string;
+  Avater: StaticImageData;
+  time: string;
+}) => {
   return (
     <>
       <div className="h-[8vh] flex items-center border-b cursor-pointer hover:bg-[#202c33]  border-b-[#333]">
@@ -19,9 +26,11 @@ const ChatList = ({ name, Avater, time }) => {
           <h2 className="text-md">{name}</h2>
           <p className="text-xs text-slate-400">Audio</p>
         </div>
-        <div className="flex flex-col items-center gap-1">
+        <div className="flex flex-col items-center justify-end w-[20%] gap-1 ">
           <h1 className="text-xs text-green-300">{time}</h1>
-          <p className="bg-green-300 w-fit px-1 text-xs rounded-full">3</p>
+          <p className="bg-green-400 text-[#333] w-fit px-1 text-xs rounded-full">
+            3
+          </p>
         </div>
       </div>
     </>

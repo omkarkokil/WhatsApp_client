@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import mask from "@/img/mask.jpg";
+import mask from "@/../../public/mask.jpg";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoFilter } from "react-icons/io5";
 import ChatList from "./ChatList/ChatList";
