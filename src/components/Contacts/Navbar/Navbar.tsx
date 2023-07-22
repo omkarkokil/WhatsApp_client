@@ -1,15 +1,38 @@
+"use client";
+
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import mask from "@/../../public/mask.jpg";
 import { MdMessage } from "react-icons/md";
-import { CiMenuKebab } from "react-icons/ci";
-const Navbar: FC = () => {
+import { BiLogOut } from "react-icons/bi";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import gif from "@/../../public/Gif.gif";
+
+const Navbar = () => {
+  const router = useRouter();
+  const user = useSession();
+
+  useEffect(() => {
+    if (user.status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [user.status, router]);
+
+  // if (user?.status === "loading") {
+  //   return (
+  //     <div className="grid h-screen w-screen bg-[#202c33] place-items-center">
+  //       <Image src={gif} height={100} width={100} alt={"none"}></Image>
+  //     </div>
+  //   );
+  // }
+
   return (
     <>
       <nav className="flex h-[7vh] sticky top-0 left-0 right-[30%] bg-[#202c33] ">
         <div className="w-full flex items-center justify-between ">
           <Image
-            src={mask}
+            src={user.data?.user?.image as string}
             className="rounded-full ml-5"
             height={40}
             width={40}
@@ -20,8 +43,14 @@ const Navbar: FC = () => {
               <MdMessage />
             </div>
 
-            <div className="cursor-pointer">
-              <CiMenuKebab />
+            <div
+              className="cursor-pointer mr-2"
+              onClick={() => {
+                router.push("/login");
+                signOut();
+              }}
+            >
+              <BiLogOut />
             </div>
           </div>
         </div>
